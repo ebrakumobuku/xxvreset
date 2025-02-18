@@ -3,105 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusReset - Motivational Diversion</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #6A0DAD; /* Purple */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        #quote {
-            font-size: 1.5rem;
-            max-width: 600px;
-            margin: 20px 0;
-        }
-
-        #constant-text {
-            color: gold;
-            margin-top: 30px;
-        }
-
-        button {
-            background: gold;
-            color: #6A0DAD;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+    <title>FocusReset - Reclaim Your Energy</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="quote">Loading your daily motivation...</div>
-    <div id="constant-text">I commend you for diverting, king 👑</div>
-    <button onclick="fetchNewQuote()">Refresh Motivation</button>
+    <div class="container">
+        <!-- Loading message -->
+        <div id="loading">Loading your empowerment message...</div>
 
-    <script>
-        // Reliable API Endpoints (with fallback)
-        const APIs = [
-            "https://api.quotable.io/random", // Primary API
-            "https://type.fit/api/quotes" // Fallback API
-        ];
+        <!-- Dynamic motivational quote -->
+        <div id="quote"></div>
 
-        // Local Fallback Quotes
-        const fallbackQuotes = [
-            { text: "Every moment of resistance makes you stronger.", author: "FocusReset" },
-            { text: "You’re choosing greatness right now.", author: "FocusReset" }
-        ];
+        <!-- Author display -->
+        <div id="author"></div>
 
-        async function fetchNewQuote() {
-            try {
-                // Try primary API first
-                const response = await fetch(APIs[0]);
-                if (!response.ok) throw new Error('API failed');
-                const data = await response.json();
-                
-                displayQuote({
-                    text: data.content,
-                    author: data.author.split(',')[0] // Clean author name
-                });
+        <!-- Category tag -->
+        <div id="category"></div>
 
-            } catch (primaryError) {
-                console.log('Primary API failed. Trying fallback...');
-                try {
-                    // Fallback to secondary API
-                    const backupRes = await fetch(APIs[1]);
-                    const backupData = await backupRes.json();
-                    const randomQuote = backupData[Math.floor(Math.random() * backupData.length)];
-                    
-                    displayQuote({
-                        text: randomQuote.text,
-                        author: randomQuote.author || "Anonymous"
-                    });
+        <!-- Constant motivational text -->
+        <div id="constant-text">
+            Choosing growth over temporary pleasure. Stay focused, stay strong! 💪
+        </div>
 
-                } catch (fallbackError) {
-                    console.log('All APIs failed. Using local quotes.');
-                    const localQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
-                    displayQuote(localQuote);
-                }
-            }
-        }
-
-        function displayQuote(quote) {
-            document.getElementById('quote').innerHTML = `
-                "${quote.text}"<br>
-                <em>- ${quote.author}</em>
-            `;
-        }
-
-        // Initial load
-        fetchNewQuote();
-    </script>
+        <!-- Refresh button -->
+        <button id="refresh-btn" onclick="displayRandomQuote()">
+            New Message
+        </button>
+    </div>
+    <script src="quotes.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
