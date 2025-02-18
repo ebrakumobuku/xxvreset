@@ -1,0 +1,16 @@
+# Ignore environment variables (API keys)
+.env
+
+# Ignore Node.js dependencies (if using a backend)
+node_modules/
+
+# Ignore system files (Mac & Windows)
+.DS_Store
+Thumbs.db
+
+# Ignore Netlify or build folders (if using a static site generator)
+dist/
+build/
+
+# Ignore log files
+*.log
