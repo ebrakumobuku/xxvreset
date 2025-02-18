@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refocus & Grow</title>
+    <title>XXV Reset</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div id="quote-container">
-            <p id="quote"></p>
-            <button onclick="getNewQuote()" class="refresh-btn">New Inspiration</button>
-            <p class="commend">I commend you for diverting to focus</p>
-            <p class="recommendation">Consider fasting for mind and spiritual growth</p>
-        </div>
+        <h1>Stay Focused 💡</h1>
+        <div id="message-box" class="message-box">Loading motivation...</div>
+        <button onclick="fetchMotivation()">Get New Message</button>
+        <p class="commendation">I commend your diversion to refocus on your goals</p>
+        <p class="recommendation">Try fasting for mental and spiritual growth</p>
     </div>
-
-    <script>
-        async function getNewQuote() {
-            try {
-                const response = await fetch('https://api.quotable.io/random?tags=wisdom|inspirational');
-                const data = await response.json();
-                document.getElementById('quote').textContent = data.content;
-            } catch (error) {
-                document.getElementById('quote').textContent = "Your journey to self-improvement starts with every conscious choice.";
-            }
-        }
-
-        // Load initial quote when page loads
-        window.onload = getNewQuote;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
