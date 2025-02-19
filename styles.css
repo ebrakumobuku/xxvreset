@@ -1,3 +1,15 @@
+body {
+    background-color: #4B0082; /* Purple background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    color: white; /* Ensures text is visible */
+}
+
 .message-box {
     width: 300px;  /* Perfect square */
     height: 300px;
@@ -14,4 +26,32 @@
     font-weight: bold;
 }
 
+.refresh-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #FFD700; /* Gold color */
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
 
+.refresh-button:hover {
+    background-color: #FFC300; /* Slightly darker gold */
+}
+
+.static-message {
+    margin-top: 15px;
+    font-size: 20px;
+    color: gold;
+    font-weight: bold;
+}
+
+.recommendation {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFD700; /* Gold color */
+}
