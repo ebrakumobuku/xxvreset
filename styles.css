@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: green !important; /* Force green color */
+    background-color: turquoise !important; /* Force turquoise */
     color: white !important; /* Ensure text remains white */
     border-radius: 15px;
     padding: 20px;
@@ -13,3 +13,5 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+
