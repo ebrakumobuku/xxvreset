@@ -1,57 +1,20 @@
-body {
-    background-color: #4B0082; /* Purple background */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    text-align: center;
-    color: white; /* Ensures text is visible */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXV Reset</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="message-box" id="motivationMessage">Loading...</div>
+    
+    <button class="refresh-button" onclick="fetchMessage()">Refresh Message</button>
+    
+    <div class="static-message">KINGS DIVERT</div>
+    
+    <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
 
-.message-box {
-    width: 300px;  /* Make it a perfect square */
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #ffffff;
-    color: #333;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.refresh-button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #FFD700; /* Gold color */
-    color: black;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.refresh-button:hover {
-    background-color: #FFC300; /* Slightly darker gold */
-}
-
-.static-message {
-    margin-top: 15px;
-    font-size: 20px;
-    color: gold;
-    font-weight: bold;
-}
-
-.recommendation {
-    margin-top: 10px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #FFD700; /* Gold color */
-}
+    <script src="script.js"></script>
+</body>
+</html>
