@@ -1,7 +1,108 @@
-<div class="moving-text">
-    <p id="quote">Loading motivation...</p>
-</div>
-<button onclick="getQuote()">Refresh</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXV Reset</title>
+    <style>
+        body {
+            background-color: #6a0dad;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .quote {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            white-space: nowrap;
+            animation: moveText 10s linear infinite;
+        }
+        @keyframes moveText {
+            from {
+                left: -100%;
+            }
+            to {
+                left: 100%;
+            }
+        }
+        .static-text {
+            font-size: 20px;
+            color: gold;
+            margin-top: 20px;
+        }
+        .recommendation {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #6a0dad;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quote" id="quote"></div>
+    <div class="static-text">KINGS DIVERT</div>
+    <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
+    
+    <div class="popup" id="popup">
+        <p>Get Daily Motivational Emails</p>
+        <form action="YOUR_GOOGLE_FORM_LINK_HERE" method="post" target="_blank">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <br>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
 
-<p class="static-text">KINGS DIVERT</p>
-<p class="big-flashy-text">RECOMMENDATION: Fasting can enhance mental clarity</p>
+    <script>
+        function fetchQuote() {
+            fetch("https://api.quotable.io/random?tags=motivation")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote").innerText = data.content;
+                })
+                .catch(error => {
+                    document.getElementById("quote").innerText = "Stay focused and keep pushing forward!";
+                });
+        }
+
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        window.onload = function() {
+            fetchQuote();
+            setTimeout(showPopup, 30000);
+        };
+    </script>
+</body>
+</html>
