@@ -11,14 +11,14 @@ body {
 }
 
 .message-box {
-    width: 300px;  /* Make it a perfect square */
+    width: 300px;  /* Perfect square */
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #ffffff;
-    color: #333;
+    background-color: #008000; /* Green box */
+    color: white; /* White text inside the box */
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
