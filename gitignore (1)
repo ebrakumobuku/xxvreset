@@ -1,5 +1,5 @@
 # Ignore environment variables (API keys)
-.env
+
 
 # Ignore Node.js dependencies (if using a backend)
 node_modules/
