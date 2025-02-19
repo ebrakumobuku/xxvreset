@@ -12,23 +12,17 @@
             text-align: center;
             overflow: hidden;
         }
-        .quote {
+        .quote-box {
+            background-color: turquoise;
+            color: black;
             font-size: 32px;
             font-weight: bold;
-            position: absolute;
-            white-space: nowrap;
-            animation: moveText 15s linear infinite;
-        }
-        @keyframes moveText {
-            from {
-                left: -100%;
-            }
-            to {
-                left: 100%;
-            }
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
         }
         .refresh-button {
-            margin-top: 50px;
             padding: 10px 20px;
             font-size: 18px;
             background-color: #ffcc00;
@@ -80,7 +74,7 @@
     </style>
 </head>
 <body>
-    <div class="quote" id="quote"></div>
+    <div class="quote-box" id="quote"></div>
     <button class="refresh-button" onclick="fetchQuote()">Refresh Message</button>
     
     <div class="popup" id="popup">
@@ -90,9 +84,10 @@
             <br>
             <button type="submit">Subscribe</button>
         </form>
-        <div class="static-text">KINGS DIVERT</div>
-        <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
     </div>
+    
+    <div class="static-text">KINGS DIVERT</div>
+    <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
 
     <script>
         function fetchQuote() {
