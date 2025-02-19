@@ -1,14 +1,13 @@
-async function fetchMessage() {
-    document.getElementById("motivationMessage").textContent = "Fetching...";
-    
+// Fetch a new motivational quote from Quotable API
+async function getQuote() {
     try {
-        const response = await fetch("https://api.example.com/get-message"); // Replace with your API
+        const response = await fetch("https://api.quotable.io/random?tags=success|mindfulness|productivity");
         const data = await response.json();
-        document.getElementById("motivationMessage").textContent = data.message;
+        document.getElementById("quote").textContent = data.content;
     } catch (error) {
-        document.getElementById("motivationMessage").textContent = "Stay strong! You got this.";
+        document.getElementById("quote").textContent = "Stay focused and keep pushing forward!";
     }
 }
 
-// Load a message as soon as the page opens
-fetchMessage();
+// Load a quote when the page loads
+window.onload = getQuote;
