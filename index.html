@@ -26,16 +26,6 @@
             justify-content: center;
             border-radius: 10px;
         }
-        .refresh-button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #ffcc00;
-            color: black;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
         .popup {
             display: none;
             position: fixed;
@@ -88,13 +78,14 @@
     </style>
 </head>
 <body>
-    <div class="quote-box" id="quote"></div>
-    <button class="refresh-button" onclick="fetchQuote()">Refresh Message</button>
+    <div class="quote-box" id="quote">This is not random! There's a reason why you are here instead, there is something about you, there is something in you, you're conscious of your mental and spiritual wellbeing..Royalty!</div>
     
     <div class="popup" id="popup">
         <p>Get Daily Motivational Emails</p>
-        <form action="https://2cm.es/Qlmr" method="post" target="_blank">
+        <form action="https://formsubmit.co/el/pumemo" method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
             <br>
             <button type="submit">Subscribe</button>
         </form>
@@ -105,17 +96,6 @@
     <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
 
     <script>
-        function fetchQuote() {
-            fetch("https://api.quotable.io/random?tags=motivation,inspiration,success,focus,mindfulness&timestamp=" + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("quote").innerText = data.content;
-                })
-                .catch(error => {
-                    document.getElementById("quote").innerText = "Stay focused and keep pushing forward!";
-                });
-        }
-
         function showPopup() {
             document.getElementById("popup").style.display = "block";
         }
@@ -125,8 +105,7 @@
         }
 
         window.onload = function() {
-            fetchQuote();
-            setTimeout(showPopup, 15000);
+            setTimeout(showPopup, 10000);
         };
     </script>
 </body>
