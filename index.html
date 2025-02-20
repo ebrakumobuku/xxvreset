@@ -82,14 +82,14 @@
     <div class="quote-box" id="quote">This is not random! There's a reason why you are here instead, there is something about you, there is something in you, you're conscious of your mental and spiritual wellbeing..Royalty!</div>
     
     <div class="popup" id="popup">
-        <p>Get Daily Motivational Emails</p>
-        <form action="https://formsubmit.co/el/pumemo" method="POST">
+        <p>Get daily motivation and fasting tips</p>
+        <form action="https://formsubmit.co/el/pumemo" method="POST" onsubmit="showThankYou(event)">
             <input type="email" name="email" placeholder="Enter your email" required>
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="">
             <br>
             <button type="submit">Subscribe</button>
         </form>
+        <p id="thank-you-message" style="display:none; color: green;">Thank you for subscribing!</p>
         <button class="close-btn" onclick="closePopup()">Close</button>
     </div>
     
@@ -103,6 +103,12 @@
 
         function closePopup() {
             document.getElementById("popup").style.display = "none";
+        }
+
+        function showThankYou(event) {
+            event.preventDefault();
+            document.querySelector("form").style.display = "none";
+            document.getElementById("thank-you-message").style.display = "block";
         }
 
         window.onload = function() {
