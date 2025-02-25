@@ -1,9 +1,10 @@
 .purple-box {
-    max-width: 80%;  /* Reduce width */
-    padding: 8px;    /* Reduce padding */
-    font-size: 12px; /* Reduce text size */
+    max-width: 70%;  /* Reduce box width */
+    padding: 6px;    /* Reduce padding */
+    font-size: 10px; /* Reduce text size inside box */
 }
 
 .static-text {
-    margin-top: -15px; /* Move text upward */
+    font-size: 12px; /* Reduce font size of static messages */
+    margin-top: -10px; /* Move text slightly upward */
 }
