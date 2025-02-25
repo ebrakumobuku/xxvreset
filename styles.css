@@ -1,34 +1,9 @@
-.moving-text {
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-}
-
-.moving-text p {
-    display: inline-block;
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    font-family: "Arial", sans-serif;
-    animation: moveText 10s linear infinite;
-}
-
-@keyframes moveText {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+.purple-box {
+    max-width: 80%;  /* Reduce width */
+    padding: 8px;    /* Reduce padding */
+    font-size: 12px; /* Reduce text size */
 }
 
 .static-text {
-    color: gold;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.big-flashy-text {
-    font-size: 26px;
-    font-weight: bold;
-    text-align: center;
-    color: red;
-    margin-top: 5px;
+    margin-top: -15px; /* Move text upward */
 }
