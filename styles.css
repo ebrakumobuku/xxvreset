@@ -1,10 +1,49 @@
-.purple-box {
-    max-width: 70%;  /* Reduce box width */
-    padding: 6px;    /* Reduce padding */
-    font-size: 10px; /* Reduce text size inside box */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
 }
 
-.static-text {
-    font-size: 12px; /* Reduce font size of static messages */
-    margin-top: -10px; /* Move text slightly upward */
+header {
+    margin-bottom: 20px;
+}
+
+form {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+input, textarea, select {
+    background: #333;
+    color: white;
+}
+
+button {
+    background: #6200ea;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3700b3;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #222;
+    border-radius: 5px;
 }
