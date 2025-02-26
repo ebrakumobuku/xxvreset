@@ -3,31 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXVRESET</title>
+    <title>XXVRESET - Coming Soon</title>
     <style>
-        .purple-box {
-            width: 80%; /* Reduced size */
-            padding: 10px; /* Adjust padding */
-            font-size: 14px; /* Reduced font size */
-            background-color: purple;
-            color: white;
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px auto;
-            border-radius: 8px;
+            padding: 50px;
         }
-        .static-text {
-            font-size: 12px; /* Reduced font size */
-            margin-top: -10px; /* Push upwards for better mobile view */
-            text-align: center;
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="purple-box">
-        <p>Updated text inside the box with a smaller font size.</p>
+    <div class="container">
+        <h1>XXVRESET</h1>
+        <p>Something exciting is coming soon. Stay tuned!</p>
+        <p class="countdown" id="countdown"></p>
     </div>
 
-    <div class="static-text">This is the first static message.</div>
-    <div class="static-text">This is the second static message.</div>
+    <script>
+        // Simple countdown to a specific launch date
+        const launchDate = new Date("March 31, 2025 00:00:00").getTime();
+        const countdown = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                countdown.innerHTML = `Launching in ${days} days!`;
+            } else {
+                countdown.innerHTML = "We are live!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
