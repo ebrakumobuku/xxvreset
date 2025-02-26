@@ -1,119 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXV Reset</title>
-    <style>
-        body {
-            background-color: #6a0dad;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            overflow: hidden;
-        }
-        .quote-box {
-            background-color: turquoise;
-            color: black;
-            font-size: 18px; /* Reduced font size */
-            font-weight: bold;
-            padding: 20px;
-            margin: 30px auto;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            color: black;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-        .popup input {
-            padding: 10px;
-            margin-top: 10px;
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .popup button {
-            margin-top: 10px;
-            padding: 10px;
-            background: #6a0dad;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .close-btn {
-            margin-top: 10px;
-            padding: 5px 10px;
-            background: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .static-text {
-            font-size: 20px;
-            color: gold;
-            margin-top: 80px; /* Pushed down */
-        }
-        .recommendation {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin-top: 20px; /* Pushed down */
-        }
-    </style>
-</head>
-<body>
-    <div class="quote-box" id="quote">This is not random! There's a reason you're here instead, there is something about you, there is something in you, you're conscious of your mental and spiritual wellbeing..Royalty!</div>
-    
-    <div class="popup" id="popup">
-        <p>Get daily motivation and fasting tips</p>
-        <form action="https://formsubmit.co/el/pumemo" method="POST" onsubmit="showThankYou(event)">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <input type="hidden" name="_captcha" value="false">
-            <br>
-            <button type="submit">Subscribe</button>
-        </form>
-        <p id="thank-you-message" style="display:none; color: green;">Thank you for subscribing!</p>
-        <button class="close-btn" onclick="closePopup()">Close</button>
-    </div>
-    
-    <div class="static-text">KINGS DIVERT</div>
-    <div class="recommendation">RECOMMENDATION: Fasting can enhance mental clarity</div>
+/* Updated XXVRESET Project Code */
 
-    <script>
-        function showPopup() {
-            document.getElementById("popup").style.display = "block";
-        }
+/* Adjusted styles to reduce the purple box size, decrease font sizes, and remove 'RECOMMENDATION:' from static texts. */
 
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
+<style>
+  .purple-box {
+    width: 80%; /* Reduced size */
+    padding: 10px; /* Adjust padding */
+    font-size: 14px; /* Reduced font size */
+  }
+  .static-text {
+    font-size: 12px; /* Reduced font size */
+    margin-top: -10px; /* Push upwards for better mobile view */
+  }
+</style>
 
-        function showThankYou(event) {
-            event.preventDefault();
-            document.querySelector("form").style.display = "none";
-            document.getElementById("thank-you-message").style.display = "block";
-        }
+<div class="purple-box">
+  <p>Updated text inside the box with a smaller font size.</p>
+</div>
 
-        window.onload = function() {
-            setTimeout(showPopup, 10000); // Updated to 10 seconds
-        };
-    </script>
-</body>
-</html>
+<div class="static-text">This is the first static message.</div>
+<div class="static-text">This is the second static message.</div>
