@@ -3,59 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXVRESET - Coming Soon</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            font-size: 36px;
-        }
-        p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        .countdown {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+    <title>XXVRESET - AI Resume Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>XXVRESET</h1>
-        <p>Something exciting is coming soon. Stay tuned!</p>
-        <p class="countdown" id="countdown"></p>
-    </div>
+        <p>Generate AI-powered resumes & cover letters instantly.</p>
+    </header>
 
-    <script>
-        // Simple countdown to a specific launch date
-        const launchDate = new Date("March 31, 2025 00:00:00").getTime();
-        const countdown = document.getElementById("countdown");
+    <main>
+        <form id="resume-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
 
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                countdown.innerHTML = `Launching in ${days} days!`;
-            } else {
-                countdown.innerHTML = "We are live!";
-            }
-        }
+            <label for="job-title">Job Title:</label>
+            <input type="text" id="job-title" required>
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+            <label for="experience">Experience Level:</label>
+            <select id="experience">
+                <option value="entry">Entry Level</option>
+                <option value="mid">Mid Level</option>
+                <option value="senior">Senior Level</option>
+            </select>
+
+            <label for="job-description">Job Description:</label>
+            <textarea id="job-description" required></textarea>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+
+        <div id="output"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 XXVRESET - AI Resume Generator</p>
+    </footer>
 </body>
 </html>
