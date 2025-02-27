@@ -1,53 +1,56 @@
 body {
-    background-color: #0d3316; /* Dark Green Background */
+    background-color: #0d3316; /* Dark green background */
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
 }
 
-header {
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
     margin-bottom: 20px;
 }
 
 form {
-    background: #145a32; /* Deep Green Form Background */
+    background: #145a32; /* Deep green form background */
     padding: 20px;
     border-radius: 8px;
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0px 0px 10px rgba(0, 255, 127, 0.2);
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.2);
 }
 
-input, textarea, select, button {
+input, textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-input, textarea, select {
-    background: #1e8449; /* Darker Green Input Fields */
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: #1e8449;
     color: white;
 }
 
 button {
-    background: #28a745; /* Bright Green Button */
+    background: #28a745; /* Bright green button */
     color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 button:hover {
-    background: #218838; /* Darker Green on Hover */
+    background: #218838;
 }
 
-#output {
-    margin-top: 20px;
-    padding: 10px;
+#resume-container {
     background: #145a32;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 255, 127, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.2);
+    text-align: left;
 }
