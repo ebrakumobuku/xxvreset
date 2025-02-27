@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXVRESET - AI Resume & Cover Letter Generator</title>
-  <!-- Link to external CSS -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Supabase client library from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXVRESET | AI Resume Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>AI Resume & Cover Letter Generator</h1>
-    <form id="resume-form">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="text" id="phone" placeholder="Phone Number" required>
-      <input type="text" id="location" placeholder="Location" required>
-      <input type="text" id="job-title" placeholder="Job Title" required>
-      <textarea id="summary" placeholder="Professional Summary" required></textarea>
-      <textarea id="experience" placeholder="Work Experience" required></textarea>
-      <textarea id="education" placeholder="Education" required></textarea>
-      <button type="submit">Generate Resume</button>
-    </form>
-    <div id="resume-container"></div>
-  </div>
-  <!-- Link to external JS -->
-  <script src="script.js"></script>
+    <header>
+        <h1>XXVRESET - AI Resume & Cover Letter Generator</h1>
+    </header>
+
+    <main>
+        <form id="resume-form">
+            <label for="job-category">Select Job Category:</label>
+            <select id="job-category">
+                <option value="tech">Tech & IT</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Finance & Business</option>
+                <option value="creative">Creative & Marketing</option>
+                <option value="general">General & Other</option>
+            </select>
+
+            <label for="experience">Years of Experience:</label>
+            <input type="number" id="experience" placeholder="e.g., 3">
+
+            <label for="job-description">Job Description:</label>
+            <textarea id="job-description" placeholder="Paste job description here..."></textarea>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+
+        <div id="resume-output"></div>
+    </main>
+
+    <script type="module">
+        import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById("resume-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const category = document.getElementById("job-category").value;
+            const experience = document.getElementById("experience").value;
+            const jobDescription = document.getElementById("job-description").value;
+
+            const { data, error } = await supabase
+                .from("resumes")
+                .select("*")
+                .eq("category", category);
+
+            if (error) {
+                console.error("Error fetching resume template:", error);
+                return;
+            }
+
+            if (data.length > 0) {
+                const template = data[Math.floor(Math.random() * data.length)];
+                document.getElementById("resume-output").innerHTML = `<iframe src="templates/${template.filename}" width="100%" height="600px"></iframe>`;
+            } else {
+                document.getElementById("resume-output").innerHTML = "<p>No matching resume found.</p>";
+            }
+        });
+    </script>
 </body>
 </html>
