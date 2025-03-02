@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXVRESET - AI Resume Generator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>AI Resume Generator</h1>
+<form id="resumeForm">
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle" required>
 
-        <label for="job-type">Select Your Job Category:</label>
-        <select id="job-type">
-            <option value="">-- Select --</option>
-            <option value="tech1">Tech & IT</option>
-            <option value="healthcare1">Healthcare</option>
-            <option value="finance1">Finance & Business</option>
-            <option value="creative1">Creative & Marketing</option>
-            <option value="general1">General & Other</option>
-        </select>
+    <label for="experience">Years of Experience:</label>
+    <input type="number" id="experience" name="experience" required>
 
-        <button id="generate-btn">Generate Resume</button>
+    <label for="jobDescription">Job Description:</label>
+    <textarea id="jobDescription" name="jobDescription" required></textarea>
 
-        <div id="resume-container"></div> <!-- This is where the resume will be displayed -->
-
-        <script src="script.js"></script>
-    </div>
-</body>
-</html>
+    <button type="submit">Generate Resume</button>
+</form>
