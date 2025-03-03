@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .resume-container {
+            max-width: 700px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin: auto;
+        }
+        h2, h3 {
+            color: #008000;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <h2 id="fullName">John Doe</h2>
+        <p><strong>Industry:</strong> Tech & IT</p>
+        <p><strong>Years of Experience:</strong> <span id="experience">2</span></p>
+
+        <div class="section">
+            <h3>Skills</h3>
+            <ul id="skills-list"></ul>
+        </div>
+
+        <div class="section">
+            <h3>About Me</h3>
+            <p id="self-description">A passionate software developer with expertise in JavaScript and cloud computing.</p>
+        </div>
+
+        <div class="section">
+            <h3>Work Experience</h3>
+            <p>Software Developer at TechCorp (2023 - Present)</p>
+            <p>Developed scalable applications and optimized backend services.</p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get("name") || "John Doe",
+                experience: params.get("exp") || "2",
+                skills: params.get("skills") ? params.get("skills").split(", ") : ["JavaScript", "Python"],
+                description: params.get("desc") || "A passionate software developer with expertise in JavaScript and cloud computing."
+            };
+        }
+
+        const userData = getQueryParams();
+        document.getElementById("fullName").innerText = userData.name;
+        document.getElementById("experience").innerText = userData.experience;
+        document.getElementById("self-description").innerText = userData.description;
+        
+        const skillsList = document.getElementById("skills-list");
+        userData.skills.forEach(skill => {
+            let li = document.createElement("li");
+            li.innerText = skill;
+            skillsList.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>
