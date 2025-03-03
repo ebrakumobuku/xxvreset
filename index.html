@@ -3,33 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXVRESET - Resume Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>XXVRESET Resume Generator</title>
+    <style>
+        body {
+            background-color: #008000; /* Green theme */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #004d00;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003300;
+        }
+    </style>
 </head>
 <body>
+
+    <h2>Generate Your Professional Resume</h2>
     <div class="container">
-        <h1>Generate Your Resume</h1>
-
         <form id="resumeForm">
-            <label for="jobTitle">Job Title:</label>
-            <input type="text" id="jobTitle" name="jobTitle" required>
+            <label>Full Name:</label>
+            <input type="text" id="fullName" required>
 
-            <label for="experience">Years of Experience:</label>
-            <input type="number" id="experience" name="experience" required>
+            <label>Job Type:</label>
+            <select id="jobType">
+                <option value="tech">Tech & IT</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Finance & Business</option>
+                <option value="creative">Creative & Marketing</option>
+                <option value="general">General & Other</option>
+            </select>
 
-            <label for="jobDescription">Job Description:</label>
-            <textarea id="jobDescription" name="jobDescription" required></textarea>
+            <label>Years of Experience:</label>
+            <input type="number" id="experience" min="0" required>
 
-            <button type="submit">Generate Resume</button>
+            <label>Skills (Select relevant skills):</label>
+            <select id="skills" multiple>
+                <!-- Skills will be dynamically loaded based on Job Type -->
+            </select>
+
+            <label>Self-Description:</label>
+            <textarea id="selfDescription" rows="3" placeholder="Briefly describe yourself"></textarea>
+
+            <button type="button" onclick="generateResume()">Generate Resume</button>
         </form>
-
-        <div id="resumeOutput" style="display: none;">
-            <h2>Your Resume</h2>
-            <div id="resumeContent"></div>
-            <button id="downloadResume">Download</button>
-        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const skillsByJob = {
+            tech: ["JavaScript", "Python", "SQL", "Cybersecurity", "Cloud Computing"],
+            healthcare: ["Patient Care", "Medical Coding", "Pharmaceutical Knowledge", "Nursing"],
+            finance: ["Accounting", "Taxation", "Risk Management", "Financial Analysis"],
+            creative: ["Graphic Design", "Video Editing", "Copywriting", "Social Media Marketing"],
+            general: ["Communication", "Project Management", "Problem Solving", "Customer Service"]
+        };
+
+        document.getElementById("jobType").addEventListener("change", function() {
+            const selectedJob = this.value;
+            const skillsDropdown = document.getElementById("skills");
+            skillsDropdown.innerHTML = "";
+            skillsByJob[selectedJob].forEach(skill => {
+                const option = document.createElement("option");
+                option.value = skill;
+                option.textContent = skill;
+                skillsDropdown.appendChild(option);
+            });
+        });
+
+        function generateResume() {
+            const name = document.getElementById("fullName").value;
+            const jobType = document.getElementById("jobType").value;
+            const experience = document.getElementById("experience").value;
+            const selectedSkills = Array.from(document.getElementById("skills").selectedOptions).map(opt => opt.value);
+            const selfDescription = document.getElementById("selfDescription").value;
+
+            if (!name || !experience || selectedSkills.length === 0) {
+                alert("Please fill all required fields.");
+                return;
+            }
+
+            const jobTemplates = {
+                tech: ["tech1.html", "tech2.html"],
+                healthcare: ["healthcare1.html", "healthcare2.html"],
+                finance: ["finance1.html", "finance2.html"],
+                creative: ["creative1.html", "creative2.html"],
+                general: ["general1.html", "general2.html"]
+            };
+
+            const template = jobTemplates[jobType][Math.floor(Math.random() * 2)];
+            window.location.href = `templates/${template}?name=${encodeURIComponent(name)}&exp=${experience}&skills=${encodeURIComponent(selectedSkills.join(", "))}&desc=${encodeURIComponent(selfDescription)}`;
+        }
+    </script>
+
 </body>
 </html>
