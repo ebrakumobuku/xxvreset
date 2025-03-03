@@ -70,18 +70,20 @@
     </div>
 
     <script>
+        // Predefined skills for each job type
         const skillsByJob = {
-            tech: ["JavaScript", "Python", "SQL", "Cybersecurity", "Cloud Computing"],
-            healthcare: ["Patient Care", "Medical Coding", "Pharmaceutical Knowledge", "Nursing"],
-            finance: ["Accounting", "Taxation", "Risk Management", "Financial Analysis"],
-            creative: ["Graphic Design", "Video Editing", "Copywriting", "Social Media Marketing"],
-            general: ["Communication", "Project Management", "Problem Solving", "Customer Service"]
+            tech: ["JavaScript", "Python", "SQL", "Cloud Computing", "Cybersecurity", "Data Analysis", "Machine Learning"],
+            healthcare: ["Patient Care", "Medical Coding", "First Aid", "Pharmaceutical Knowledge", "Clinical Research"],
+            finance: ["Accounting", "Taxation", "Risk Management", "Financial Analysis", "Auditing", "Investment Strategies"],
+            creative: ["Graphic Design", "Video Editing", "Copywriting", "Social Media Marketing", "Brand Management"],
+            general: ["Communication", "Project Management", "Problem Solving", "Customer Service", "Time Management"]
         };
 
+        // Populate skills dropdown when job type is selected
         document.getElementById("jobType").addEventListener("change", function() {
             const selectedJob = this.value;
             const skillsDropdown = document.getElementById("skills");
-            skillsDropdown.innerHTML = "";
+            skillsDropdown.innerHTML = ""; // Clear previous options
             skillsByJob[selectedJob].forEach(skill => {
                 const option = document.createElement("option");
                 option.value = skill;
@@ -90,6 +92,7 @@
             });
         });
 
+        // Generate resume and navigate to a random template based on job type
         function generateResume() {
             const name = document.getElementById("fullName").value;
             const jobType = document.getElementById("jobType").value;
