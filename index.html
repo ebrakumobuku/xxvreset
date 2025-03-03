@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXVRESET - Resume Generator</title>
+    <title>Professional Resume Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>XXVRESET - Resume Generator</h1>
-    
+    <h1>Professional Resume Generator</h1>
+
     <label for="fullName">Full Name:</label>
     <input type="text" id="fullName" placeholder="Enter your name">
 
@@ -23,10 +23,19 @@
     </select>
 
     <label for="experience">Years of Experience:</label>
-    <input type="number" id="experience" min="0" placeholder="Enter years of experience">
+    <select id="experience">
+        <option value="">-- Select Experience --</option>
+        <option value="0-1">0-1 years</option>
+        <option value="2-3">2-3 years</option>
+        <option value="4-6">4-6 years</option>
+        <option value="7-10">7-10 years</option>
+        <option value="10+">10+ years</option>
+    </select>
 
-    <label for="skills">Skills (comma separated):</label>
-    <input type="text" id="skills" placeholder="E.g. JavaScript, Python, Project Management">
+    <label for="skills">Select Relevant Skills:</label>
+    <select id="skills" multiple>
+        <!-- Skills will be added dynamically based on job type -->
+    </select>
 
     <label for="selfDescription">Brief Self Description:</label>
     <textarea id="selfDescription" placeholder="Write a short description about yourself..."></textarea>
