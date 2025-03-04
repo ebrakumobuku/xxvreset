@@ -7,29 +7,33 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #1b2a1f;
+            color: white;
             padding: 20px;
         }
         .resume-container {
             max-width: 800px;
             margin: auto;
-            background: #fff;
+            background: #234d20;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         h1, h2 {
-            color: #2c3e50;
+            color: #e8f5e9;
         }
         .section {
             margin-bottom: 20px;
+            padding: 15px;
+            background: #2e6b30;
+            border-radius: 8px;
         }
         .skills-list, .projects-list, .certifications-list {
             list-style-type: none;
             padding: 0;
         }
         .skills-list li, .projects-list li, .certifications-list li {
-            background: #27ae60;
+            background: #4caf50;
             color: white;
             display: inline-block;
             padding: 5px 10px;
@@ -37,16 +41,17 @@
             border-radius: 5px;
         }
         .editable {
-            background: #ecf0f1;
+            background: #3b8040;
             padding: 10px;
             border-radius: 5px;
             min-height: 30px;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="resume-container">
-        <h1 id="full-name">[Full Name]</h1>
+        <h1 id="full-name"></h1>
         <p id="job-title">Tech Professional | Software Developer | IT Specialist</p>
 
         <div class="section">
@@ -56,38 +61,63 @@
 
         <div class="section">
             <h2>Skills</h2>
-            <ul id="skills-list" class="skills-list">
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>React.js</li>
-            </ul>
+            <ul id="skills-list" class="skills-list"></ul>
         </div>
 
         <div class="section">
             <h2>Experience</h2>
-            <p id="experience" class="editable">2+ years of experience in developing scalable web applications and working with agile methodologies...</p>
+            <p id="experience" class="editable"></p>
         </div>
 
         <div class="section">
             <h2>Education</h2>
-            <p id="education" class="editable">[User can input their education details]</p>
+            <p id="education" class="editable" contenteditable="true">Click to add your education</p>
         </div>
 
         <div class="section">
             <h2>Certifications</h2>
-            <ul id="certifications-list" class="certifications-list">
-                <li>Google IT Support</li>
-                <li>Microsoft Azure Fundamentals</li>
-            </ul>
+            <ul id="certifications-list" class="certifications-list"></ul>
+            <p class="editable" contenteditable="true">Click to add certifications</p>
         </div>
 
         <div class="section">
             <h2>Projects</h2>
-            <ul id="projects-list" class="projects-list">
-                <li>Developed an AI-powered chatbot</li>
-                <li>Built a SaaS platform for businesses</li>
-            </ul>
+            <ul id="projects-list" class="projects-list"></ul>
+            <p class="editable" contenteditable="true">Click to add projects</p>
         </div>
     </div>
+
+    <script>
+        // Dynamically fill in user details
+        document.getElementById("full-name").innerText = localStorage.getItem("userName") || "John Doe";
+        document.getElementById("summary").innerText = localStorage.getItem("userSummary") || "A highly skilled tech professional...";
+        
+        // Load Skills
+        let skills = JSON.parse(localStorage.getItem("userSkills")) || ["JavaScript", "Python", "React.js"];
+        let skillsList = document.getElementById("skills-list");
+        skills.forEach(skill => {
+            let li = document.createElement("li");
+            li.innerText = skill;
+            skillsList.appendChild(li);
+        });
+
+        // Load Certifications
+        let certs = JSON.parse(localStorage.getItem("userCerts")) || ["Google IT Support", "AWS Certified Developer"];
+        let certList = document.getElementById("certifications-list");
+        certs.forEach(cert => {
+            let li = document.createElement("li");
+            li.innerText = cert;
+            certList.appendChild(li);
+        });
+
+        // Load Projects
+        let projects = JSON.parse(localStorage.getItem("userProjects")) || ["AI Chatbot", "E-commerce Website"];
+        let projectList = document.getElementById("projects-list");
+        projects.forEach(project => {
+            let li = document.createElement("li");
+            li.innerText = project;
+            projectList.appendChild(li);
+        });
+    </script>
 </body>
 </html>
