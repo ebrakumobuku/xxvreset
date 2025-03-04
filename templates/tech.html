@@ -3,31 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generated Resume - Tech</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Tech Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .skills-list, .projects-list, .certifications-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li, .projects-list li, .certifications-list li {
+            background: #27ae60;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .editable {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            min-height: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Generated Resume - Tech</h1>
+    <div class="resume-container">
+        <h1 id="full-name">[Full Name]</h1>
+        <p id="job-title">Tech Professional | Software Developer | IT Specialist</p>
 
-    <div id="resume">
-        <h2 id="fullName"></h2>
-        <p><strong>Years of Experience:</strong> <span id="experience"></span></p>
-        <p><strong>Skills:</strong> <span id="skills"></span></p>
-        <p><strong>About Me:</strong> <span id="selfDescription"></span></p>
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p id="summary" class="editable">Dynamic and results-oriented tech professional with expertise in software development, cloud computing, and system optimization...</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <ul id="skills-list" class="skills-list">
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>React.js</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <p id="experience" class="editable">2+ years of experience in developing scalable web applications and working with agile methodologies...</p>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p id="education" class="editable">[User can input their education details]</p>
+        </div>
+
+        <div class="section">
+            <h2>Certifications</h2>
+            <ul id="certifications-list" class="certifications-list">
+                <li>Google IT Support</li>
+                <li>Microsoft Azure Fundamentals</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Projects</h2>
+            <ul id="projects-list" class="projects-list">
+                <li>Developed an AI-powered chatbot</li>
+                <li>Built a SaaS platform for businesses</li>
+            </ul>
+        </div>
     </div>
-
-    <button onclick="window.print()">Download Resume</button>
-
-    <script>
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param) || "";
-        }
-
-        document.getElementById("fullName").innerText = getQueryParam("name");
-        document.getElementById("experience").innerText = getQueryParam("exp");
-        document.getElementById("skills").innerText = getQueryParam("skills");
-        document.getElementById("selfDescription").innerText = getQueryParam("desc");
-    </script>
 </body>
 </html>
